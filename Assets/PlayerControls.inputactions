@@ -22,7 +22,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ChangeColor",
+                    "name": "OpenInventory",
                     "type": "Button",
                     "id": "eb984ad7-cf9e-4314-af78-48ce70e7f5fc",
                     "expectedControlType": "Button",
@@ -82,7 +82,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeColor",
+                    "action": "OpenInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
