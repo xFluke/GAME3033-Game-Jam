@@ -9,7 +9,17 @@ public class ColoredObject : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         FindObjectOfType<ColorManager>().OnBackgroundColorStateChange.AddListener(UpdateCollider);
-        GetComponent<SpriteRenderer>().color = ColorManager.ColorStateToColor32(myColorState);
+
+        if (transform.childCount > 0) {
+            SpriteRenderer[] childrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+            foreach (SpriteRenderer spriteRenderer in childrenSpriteRenderers) {
+                spriteRenderer.color = ColorManager.ColorStateToColor32(myColorState);
+            }
+        }
+        else {
+            GetComponent<SpriteRenderer>().color = ColorManager.ColorStateToColor32(myColorState);
+        }
     }
 
     void UpdateCollider(ColorState currentBackgroundColorState) {

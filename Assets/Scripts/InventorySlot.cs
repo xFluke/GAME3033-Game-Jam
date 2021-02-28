@@ -20,7 +20,6 @@ public class InventorySlot : MonoBehaviour
     }
 
     public void OnClick() {
-        Debug.Log("Hi!");
         FindObjectOfType<ColorManager>().ChangeCameraBGColor(colorState);
         transform.parent.gameObject.SetActive(false);
     }

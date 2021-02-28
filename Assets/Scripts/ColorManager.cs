@@ -17,7 +17,6 @@ public class ColorManager : MonoBehaviour
     public UnityEvent<ColorState> OnBackgroundColorStateChange;
     
     public void ChangeCameraBGColor(ColorState colorState) {
-        Debug.Log("Changing Color");
 
         Color32 color32 = ColorStateToColor32(colorState);
 

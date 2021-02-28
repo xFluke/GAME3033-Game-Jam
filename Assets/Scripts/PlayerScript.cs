@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -57,46 +58,16 @@ public class PlayerScript : MonoBehaviour
             }
             return;
         }
-
-        // If background is same color as obstacle
-        if ((Color32)collision.gameObject.GetComponent<SpriteRenderer>().color == (FindObjectOfType<Camera>().backgroundColor)) {
-            collision.collider.enabled = false;
-        }
-        else {
-            collision.collider.enabled = true;
-        }
-        
-    }
-
-    private void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Ground")) {
-            if (jumping) {
-                jumping = false;
-                GetComponent<Animator>().SetBool("Jumping", false);
-            }
-            return;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Ground"))
-            return;
-
-        collision.collider.enabled = true;
-
-        // If background is not same color as obstacle
-        if ((Color32)collision.gameObject.GetComponent<SpriteRenderer>().color != FindObjectOfType<Camera>().backgroundColor) {
-            collision.collider.enabled = true;
-        }
-        else {
-            collision.collider.enabled = false;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Portal")) {
             Destroy(this);
-            GetComponent<Animator>().SetTrigger("LevelComplete");
+            GetComponent<Animator>().SetTrigger("LevelComplete");       
+        }
+        else if (collision.gameObject.CompareTag("Spike")) {
+            Time.timeScale = 0;
+            FindObjectOfType<UIManager>().EnableGameOverCanvas();
         }
     }
 
