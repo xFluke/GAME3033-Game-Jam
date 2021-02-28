@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] GameObject inventory;
 
     bool jumping = false;
+    bool paused = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -71,7 +72,10 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void OnOpenInventory() {
-        inventory.SetActive(!inventory.activeInHierarchy);
+    public void OnPause() {
+        paused = !paused;
+
+        FindObjectOfType<UIManager>().TogglePauseMenu(paused);
+        
     }
 }

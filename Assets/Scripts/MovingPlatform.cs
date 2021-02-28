@@ -8,7 +8,7 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] Vector3 endingPos;
 
     bool move = false;
-    float moveSpeed = 0.005f;
+    float moveSpeed = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (move) {
             if (transform.position.x < endingPos.x)
-                transform.position += new Vector3(moveSpeed, 0f, 0f);
+                transform.position += new Vector3(moveSpeed * Time.deltaTime, 0f, 0f) ;
         }
     }
 

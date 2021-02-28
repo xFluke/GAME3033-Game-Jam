@@ -22,7 +22,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "OpenInventory",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "eb984ad7-cf9e-4314-af78-48ce70e7f5fc",
                     "expectedControlType": "Button",
@@ -78,11 +78,11 @@
                 {
                     "name": "",
                     "id": "58078189-4854-4a6a-945c-778ddd759ce4",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "OpenInventory",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

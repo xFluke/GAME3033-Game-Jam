@@ -12,4 +12,8 @@ public class UIButtonBehavior : MonoBehaviour
     public void Play() {
         SceneManager.LoadScene("Level1");
     }
+
+    public void ReturnToMainMenu() {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
